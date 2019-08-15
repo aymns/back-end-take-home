@@ -1,4 +1,5 @@
-﻿using GuestLogix.Core.DataAccess;
+﻿using System.Linq;
+using GuestLogix.Core.DataAccess;
 
 namespace GuestLogix.Core.Queries
 {
@@ -13,11 +14,16 @@ namespace GuestLogix.Core.Queries
 
         public string[] Handle(Request request)
         {
-            return null;
+            return dbContext.RoutesGraph.BFS(request.Source, request.Destination).ToArray();
         }
        
         public class Request
         {
+            public Request(string source, string destination)
+            {
+                this.Source = source;
+                this.Destination = destination;
+            }
             public string Source { get; set; }
             public string Destination { get; set; }
         }

@@ -9,5 +9,7 @@ namespace GuestLogix.Core.DataAccess
         IQueryable<Route> Routes { get; set; }
         IQueryable<Airline> Airlines { get; set; }
         IQueryable<Airport> Airports { get; set; }
+
+        Graph RoutesGraph { get;}
     }
 }

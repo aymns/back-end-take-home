@@ -8,25 +8,43 @@ namespace GuestLogix.Core.DataAccess
 {
     public class CsvDbContext : IDbContext
     {
-        public CsvDbContext()
+        private readonly string DataPath;
+        public CsvDbContext(string dataPath)
         {
+            this.DataPath = dataPath;
             LoadData();
         }
 
         public IQueryable<Route> Routes { get; set; }
         public IQueryable<Airline> Airlines { get; set; }
         public IQueryable<Airport> Airports { get; set; }
+        public Graph RoutesGraph { get; private set; }
 
         private void LoadData()
         {
             LoadAirports();
             LoadAirlines();
             LoadRoutes();
+            BuildRoutesGraph();
+        }
+
+        private void BuildRoutesGraph()
+        {
+            RoutesGraph = new Graph();
+            foreach (var airport in Airports)
+            {
+                RoutesGraph.AddVertex(airport.IATA3);
+            }
+            foreach (var route in Routes)
+            {
+                RoutesGraph.AddEdge(route.Origin, route.Destination);
+            }
         }
 
         private void LoadRoutes()
         {
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"data/routes.csv");
+
+            var path = Path.Combine(DataPath, @"routes.csv");
 
             Routes = (from line in File.ReadAllLines(path).Skip(1)
                 let columns = line.Split(',')
@@ -35,7 +53,7 @@ namespace GuestLogix.Core.DataAccess
 
         private void LoadAirlines()
         {
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"data/airlines.csv");
+            var path = Path.Combine(DataPath, @"airlines.csv");
 
             Airlines = (from line in File.ReadAllLines(path).Skip(1)
                 let columns = line.Split(',')
@@ -44,7 +62,8 @@ namespace GuestLogix.Core.DataAccess
 
         private void LoadAirports()
         {
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"data/airports.csv");
+            
+            var path = Path.Combine(DataPath, @"airports.csv");
 
             Airports = (from line in File.ReadAllLines(path).Skip(1)
                 let columns = line.Split(',')
