@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29201.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuestLogix.Web", "GuestLogix.Web\GuestLogix.Web.csproj", "{E3DB8CA2-0A21-4B09-80BD-F7313B82E25A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuestLogix.Test", "GuestLogix.Test\GuestLogix.Test.csproj", "{EDAEFF19-9F77-4E62-B1B1-8B333F2E747B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuestLogix.Core", "GuestLogix.Core\GuestLogix.Core.csproj", "{E21EFFE4-CD68-4F6C-8FEC-C8EB3E8693B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{E3DB8CA2-0A21-4B09-80BD-F7313B82E25A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3DB8CA2-0A21-4B09-80BD-F7313B82E25A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3DB8CA2-0A21-4B09-80BD-F7313B82E25A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDAEFF19-9F77-4E62-B1B1-8B333F2E747B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDAEFF19-9F77-4E62-B1B1-8B333F2E747B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDAEFF19-9F77-4E62-B1B1-8B333F2E747B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDAEFF19-9F77-4E62-B1B1-8B333F2E747B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E21EFFE4-CD68-4F6C-8FEC-C8EB3E8693B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E21EFFE4-CD68-4F6C-8FEC-C8EB3E8693B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E21EFFE4-CD68-4F6C-8FEC-C8EB3E8693B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E21EFFE4-CD68-4F6C-8FEC-C8EB3E8693B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
