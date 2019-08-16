@@ -23,7 +23,6 @@ namespace GuestLogix.Web.Controllers
         public string[] Get(string source, string destination)
         {
             var request = new GetShortestPath.Request(source, destination);
-
             var shortestPath = new GetShortestPath(dbContext).Handle(request);
             return shortestPath;
         }
