@@ -35,10 +35,10 @@ namespace GuestLogix.Core.Models
             }
         }
 
-        public IEnumerable<string> BFS(string source, string destination)
+        public IEnumerable<string> ShortestPath(string source, string destination)
         {
-            if (source == null || destination == null || Data.Count == 0)
-                return null;
+            if (source == null || destination == null)
+                throw BusinessException.INVALID_REQUEST;
 
             if (!Data.ContainsKey(source))
                 throw BusinessException.INVALID_ORIGIN;

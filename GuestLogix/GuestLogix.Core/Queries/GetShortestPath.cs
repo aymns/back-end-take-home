@@ -14,7 +14,7 @@ namespace GuestLogix.Core.Queries
 
         public string[] Handle(Request request)
         {
-            return dbContext.RoutesGraph.BFS(request.Source, request.Destination).ToArray();
+            return dbContext.RoutesGraph.ShortestPath(request.Source, request.Destination).ToArray();
         }
        
         public class Request
